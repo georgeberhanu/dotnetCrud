@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Simple_CrudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Simple_Crud.dbo.Todo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Todo">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="DueDate" />
+      <PropertyRef Name="Attributes" />
+      <PropertyRef Name="Priority" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="Attributes" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Priority" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Simple_CrudModelStoreContainer">
+    <EntitySet Name="Todo" EntityType="Self.Todo" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Todo].[ID] AS [ID], 
+    [Todo].[Name] AS [Name], 
+    [Todo].[DueDate] AS [DueDate], 
+    [Todo].[Attributes] AS [Attributes], 
+    [Todo].[Priority] AS [Priority]
+    FROM [dbo].[Todo] AS [Todo]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
